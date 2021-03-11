@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UsersActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbar_layout"
+        app:navigationIcon="@drawable/ic_arrow_right"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:scrollbarFadeDuration="2222"
+            android:backgroundTint="@color/materialblack"
+            app:contentScrim="#DD8028"
+            style="@style/CustomToolbarTheme"
+
+            >
+
+
+
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                   app:layout_collapseMode="parallax"
+                    app:cardCornerRadius="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="#5061C1">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/user"
+                            android:layout_gravity="end"
+                            android:layout_margin="10dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="855"
+                            android:textSize="50dp"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/baloobold"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="25dp"
+                            android:fontFamily="@font/baloobold"
+                            android:layout_margin="10dp"/>
+
+
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="@color/materialblack"
+                app:title="Users"
+                app:navigationIcon="@drawable/ic_arrow"
+                android:id="@+id/Profiletoolbar"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:backgroundTint="#5BFFFFFF"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        app:cornerRadius="30dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:drawableLeft="@drawable/bluearrow" />-->
+
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_margin="10dp"-->
+<!--        app:cardCornerRadius="5dp">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical"-->
+<!--            android:background="#5061C1">-->
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:src="@drawable/user"-->
+<!--                android:layout_gravity="end"-->
+<!--                android:layout_margin="10dp"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="855"-->
+<!--                android:textSize="50dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:fontFamily="@font/baloobold"-->
+<!--                android:layout_gravity="center"/>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Users"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="25dp"-->
+<!--                android:fontFamily="@font/baloobold"-->
+<!--                android:layout_margin="10dp"/>-->
+
+
+
+<!--        </LinearLayout>-->
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+    >
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/UserList"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

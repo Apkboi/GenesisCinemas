@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+       android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/movienp"
+        android:id="@+id/slider_img">
+
+    </ImageView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slider_img"
+        android:text="YOUR HOME O ENTERTAINMENT"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:fontFamily="@font/baloobold"
+        android:textStyle="bold"
+        android:id="@+id/txtheading"
+        android:textColor="@color/materialblack"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtheading"
+         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/Lightblack"
+        android:text="you giveyou the best of entertainmen
+           t o our ksdksabvl sdk ksksdk hskdh ddh
+        sdh so oi soioi sd dos sdoi od odioiodisoi sd"
+        android:gravity="center"
+
+        android:id="@+id/txt_desc"
+        >
+
+    </TextView>
+
+</RelativeLayout>

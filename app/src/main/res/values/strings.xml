@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GenesisCinemas</string>
+    <string name="writeup">Lorem ksk;skkskl; ;dadhpd pdpoSDODPISAP   skddssdsd ksdhksdhksdhks kdshkdshkshkdhkss ksdhkdhdkdks skdhkdhksdhk hksdhkdshkd ksdhkd kkshdkhkssk ksdhkSDPOODS DOIODI ODIOIDO;AO  ODISOIDUSOOIDOSO  SODIOIODODPSAOSDOSDIODI SOIDOSODOIGSODIGODGOIG SODIGOD OSIUOD OSDIU OSIDOIDU OSDOIS ODI</string>
+    //Slide Tittles
+    <string name="first_slid_tittle">Unlimited Entertainment</string>
+    <string name="second_slid_tittle">Unlimited Entertainment</string>
+    <string name="third_slid_tittle">Unlimited Entertainment</string>
+    <string name="fourth_slid_tittle">Unlimited Entertainment</string>
+
+
+    //Slide descriptions
+    <string name="first_slid_desc">Unlimited Entertainment</string>
+    <string name="second_slid_desc">Unlimited Entertainment</string>
+    <string name="third_slid_desc">Unlimited Entertainment</string>
+    <string name="fourth_slid_desc">Unlimited Entertainment</string>
+
+</resources>

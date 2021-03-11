@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="15dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_movieimage"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+           android:scaleType="centerCrop"
+            />
+
+    </com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloobold"
+        android:textColor="@color/materialblack"
+        android:layout_marginTop="5dp"
+        android:id="@+id/txt_movietittle"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+<RatingBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    style="@style/Widget.AppCompat.RatingBar.Small"
+    android:rating="4.0"
+    android:id="@+id/ratingBar"
+   android:layout_gravity="center"
+   />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.0"
+            android:textColor="@color/darkorange"
+            android:textSize="16dp"
+            android:maxLength="3"
+            android:id="@+id/txt_rating"
+            android:fontFamily="@font/baloobold"
+            android:layout_margin="5dp"
+           />
+
+    </LinearLayout>
+</LinearLayout>

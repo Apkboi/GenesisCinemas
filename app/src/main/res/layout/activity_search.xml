@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchActivity">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search"
+        android:id="@+id/searchQuery"/>
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:endIconMode="clear_text"-->
+<!--        android:backgroundTint="@color/colorPrimary">-->
+<!--    <com.google.android.material.textfield.TextInputEditText-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:hint="Search movie"-->
+<!--       -->
+<!--        android:inputType="text"-->
+<!--        android:drawableStart="@drawable/ic_search"-->
+<!--        android:drawablePadding="5dp"-->
+<!--        />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        app:spanCount="3"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        android:id="@+id/SearchRecycler"/>
+
+
+</LinearLayout>

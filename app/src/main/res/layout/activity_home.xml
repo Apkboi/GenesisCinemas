@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:id="@+id/drawer"
+    android:background="@android:color/white">
+
+
+
+   
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_nav"
+            android:id="@+id/navicon"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies"
+            android:textColor="@color/materialblack"
+            android:fontFamily="@font/baloobold"
+            android:textSize="30dp"
+            android:layout_margin="10dp"
+            android:inputType="text"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#1BC59696"
+            android:layout_margin="20dp"
+            android:drawableRight="@drawable/ic_search"
+            android:hint="search videos"
+            android:padding="7dp"
+            android:id="@+id/edt_Search"
+            android:drawablePadding="10dp"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Porpular"
+                android:layout_weight="1.3"
+                android:textSize="25dp"
+                android:id="@+id/txt_popular"
+                android:fontFamily="@font/baloobold"
+                android:textColor="@color/materialblack"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="view all"
+                android:layout_weight="1.7"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:fontFamily="@font/baloo"
+                android:id="@+id/viewPorpularMovies"
+                android:textColor="@color/darkorange"/>
+
+        </LinearLayout>
+
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          tools:listitem="@layout/itemview"
+          android:id="@+id/popularRecycler"
+          app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+          app:spanCount="1"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+           >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Movies in Cinema"
+                android:layout_weight="2"
+                android:textSize="25dp"
+                android:fontFamily="@font/baloobold"
+                android:textColor="@color/materialblack"/>
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="view all"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="end"
+                android:fontFamily="@font/baloo"
+                android:id="@+id/txt_viewMoviesInCinema"
+                android:textColor="@color/darkorange"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/MoviesInCinemaRecycle"
+            tools:listitem="@layout/seconditemview"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            app:spanCount="1"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Upcoming "
+                        android:layout_weight="1.3"
+                        android:textSize="25dp"
+                        android:fontFamily="@font/baloobold"
+                        android:textColor="@color/materialblack"/>
+
+
+<!--                    <TextView-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="view all"-->
+<!--                        android:layout_weight="1.7"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:gravity="end"-->
+<!--                        android:textColor="#FF7043"/>-->
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/UpcomingRecycler"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    app:spanCount="3"/>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progressDialog"
+
+        android:background="@android:color/white">
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorName="LineScaleIndicator"
+            android:layout_gravity="center"
+            app:indicatorColor="@color/darkorange"
+            />
+    </FrameLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationView"
+        android:fitsSystemWindows="true"
+        android:layout_gravity ="start"
+        android:background="@android:color/white"
+        app:menu="@menu/items"
+        app:headerLayout="@layout/navheader"
+        app:itemIconTint="@color/nav_icon_selector"
+        app:itemTextColor="@color/nav_item_selector"
+       />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+
+<!--  app:itemTextColor="@color/nav_item_selector"
+        app:itemIconTint="@color/nav_item_selector"
+         app:headerLayout="@layout/header"-->

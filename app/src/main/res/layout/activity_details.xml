@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailsActivity">
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbar_layout"
+        android:visibility="invisible"
+        app:navigationIcon="@drawable/ic_arrow_right"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|snap|snapMargins"
+            app:contentScrim="@color/colorAccent"
+
+
+            >
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/appbar_image"
+                android:layout_gravity="center"
+                app:layout_collapseMode="parallax"
+                android:alpha="0.8"
+                android:scaleType="centerCrop"/>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_arrow"
+                android:id="@+id/toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@id/appbar_layout"
+            android:visibility="invisible"
+            android:id="@+id/actionButton"
+            app:layout_anchorGravity="bottom|right|end"
+            android:src="@drawable/ic_play_arrow"
+            android:layout_margin="10dp"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Genius"
+                android:id="@+id/movie_name"
+                android:textSize="30dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:textColor="@color/materialblack"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RatingBar
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    style="@style/Widget.AppCompat.RatingBar.Indicator"
+                    android:rating="4.0"
+                    android:id="@+id/ratingBar"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="4.0"
+                    android:textColor="#FFA726"
+                    android:textSize="25dp"
+                    android:id="@+id/txt_rating"
+                    android:maxLength="3"
+                    android:fontFamily="@font/baloobold"
+                   android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_margin="5dp"
+                    />
+
+            </LinearLayout>
+
+
+        <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="50dp"
+            android:orientation="horizontal"
+         android:weightSum="2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:text="Williams Cherechi"
+                android:textSize="16dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:id="@+id/txt_director"
+                android:layout_margin="10dp"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="0.6"
+                android:orientation="vertical"
+                android:weightSum="3">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.4"
+                    android:gravity="center"
+                    android:id="@+id/txt_date"
+                    android:textColor="@color/Lightblack"
+                    android:text="August 20th"
+                    android:fontFamily="@font/baloo">
+
+                </TextView>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:layout_gravity="right"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/materialblack"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/txt_duration"
+                    android:fontFamily="@font/baloo"
+                    android:textColor="@color/Lightblack"
+                    android:text="2hr/30mins">
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Synoposis"
+                android:textSize="20dp"
+                android:fontFamily="@font/baloo"
+                android:textStyle="bold"
+                android:textColor="@color/materialblack"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/movie_details"
+                android:textColor="@color/Lightblack"
+                android:text="@string/writeup"
+                android:fontFamily="@font/baloo"
+                android:textAlignment="textStart"
+                android:gravity="start" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cast &amp; Crew"
+                    android:layout_weight="2"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/baloo"
+                    android:textStyle="bold"
+                    android:textColor="@color/materialblack"/>
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="view all"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/baloo"
+                    android:id="@+id/viewAllMovieActors"
+                    android:layout_gravity="center"
+                    android:gravity="end"
+                    android:textColor="@color/darkorange"/>
+
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="1"
+                tools:itemCount="1"
+                android:id="@+id/actorsDetail"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:text="Book Ticket"
+                android:layout_margin="20dp"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:padding="20dp"
+                tools:ignore="RtlCompat"
+                android:backgroundTint="@color/materialblack"
+                android:id="@+id/btn_book"/>
+
+<!--            <com.google.android.material.card.MaterialCardView-->
+<!--                android:layout_width="80dp"-->
+<!--                android:layout_height="80dp"-->
+<!--                android:elevation="12dp"-->
+<!--                android:id="@+id/view2"-->
+<!--                app:cardCornerRadius="40dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:innerRadius="0dp"-->
+<!--                android:shape="ring"-->
+<!--                android:thicknessRatio="1.9">-->
+<!--                <ImageView-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:id="@+id/imageView1"-->
+<!--                    android:src="@drawable/aa"-->
+<!--                    android:scaleType="centerCrop"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_centerHorizontal="true">-->
+<!--                </ImageView>-->
+<!--            </com.google.android.material.card.MaterialCardView>-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progressDialog"
+        android:background="@android:color/white">
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorName="LineScaleIndicator"
+        android:layout_gravity="center"
+        app:indicatorColor="@color/darkorange"
+        />
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

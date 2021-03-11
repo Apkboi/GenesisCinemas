@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E2828</color>
+    <color name="colorPrimaryDark">#ffff</color>
+    <color name="colorAccent">#FF7043</color>
+    <color name="materialblack">#2E2828</color>
+    <color name="Lightblack">#4E4646</color>
+    <color name="dotscolor">#BAB6B6</color>
+    <color name="darkorange">#FF7043</color>
+</resources>
