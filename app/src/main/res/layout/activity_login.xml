@@ -45,10 +45,11 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Email or Username"
+                        android:hint="Email"
                         android:inputType="text"
                         android:textColor="@color/Lightblack"
-                        android:drawablePadding="16dp">
+                        android:drawablePadding="16dp"
+                        android:id="@+id/edt_Email">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -70,7 +71,8 @@
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:textColor="@color/Lightblack"
-                        android:drawablePadding="16dp">
+                        android:drawablePadding="16dp"
+                        android:id="@+id/edt_Password">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>

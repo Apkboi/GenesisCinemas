@@ -48,6 +48,7 @@
                         android:hint="Full name"
                         android:textColor="@color/Lightblack"
                         android:inputType="text"
+                        android:id="@+id/edt_fullname"
                         >
 
                     </com.google.android.material.textfield.TextInputEditText>
@@ -70,7 +71,8 @@
                         android:hint="Phonenumber"
                         android:inputType="number"
                         android:textColor="@color/Lightblack"
-                        android:drawablePadding="16dp">
+                        android:drawablePadding="16dp"
+                        android:id="@+id/edt_phoneNumber">
 
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -92,7 +94,8 @@
                 android:hint="Email Address"
                 android:textColor="@color/Lightblack"
                 android:inputType="textEmailAddress"
-                android:drawablePadding="16dp">
+                android:drawablePadding="16dp"
+                android:id="@+id/edt_email">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -110,7 +113,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="@color/Lightblack"
-                android:drawablePadding="16dp">
+                android:drawablePadding="16dp"
+                android:id="@+id/edt_password">
 
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
@@ -127,126 +131,44 @@
             android:text="SIGNUP"
             android:padding="15dp"
             app:rippleColor="#BF437B"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
+
             <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.3"
                 android:drawableLeft="@drawable/icons8google"
-                android:textColor="@color/materialblack"
+                android:textColor="@color/grey"
                 android:text="SIGN UP WITH GOOGLE"
-                android:textSize="7dp"
-
+                android:textSize="16dp"
+                android:fontFamily="@font/baloo"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_margin="3dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="10dp"
                 />
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="OR"
-                android:layout_weight="0.4"
-                android:gravity="center"
-                android:padding="10dp"
+                android:layout_gravity="center"
                 android:textSize="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.3"
-                android:textSize="7dp"
+                android:textSize="16dp"
                 android:drawableLeft="@drawable/icons8facebook3"
                 android:text="SIGNUP WITH FACEBOOK"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/baloo"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_margin="3dp"/>
-
-        </LinearLayout>
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="forgot Password"-->
-<!--            android:gravity="end"-->
-<!--            android:layout_margin="10dp">-->
-
-<!--        </TextView>-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="10dp"/>
 
 
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="15dp"-->
-<!--                android:layout_marginRight="15dp"-->
-<!--                android:id="@+id/btnlogin"-->
-<!--                style="@style/Widget.MaterialComponents.Button"-->
-<!--                android:backgroundTint="#FF7043"-->
-<!--                android:text="Login"-->
-<!--                android:padding="15dp"-->
-<!--                app:rippleColor="#BF437B"/>-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:orientation="horizontal"-->
 
-<!--                android:weightSum="3">-->
-
-<!--                <View-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="1.5dp"-->
-<!--                    android:layout_weight="1.25"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginLeft="7dp"-->
-
-<!--                    android:background="@color/materialblack"/>-->
-<!--                <TextView-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="OR"-->
-<!--                    android:layout_weight="0.5"-->
-<!--                    android:gravity="center"-->
-<!--                    android:padding="10dp"-->
-<!--                    />-->
-<!--                <View-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="1.5dp"-->
-<!--                    android:layout_weight="1.25"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:layout_marginRight="7dp"-->
-<!--                    android:background="@color/materialblack"/>-->
-<!--            </LinearLayout>-->
-
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
-<!--                android:layout_margin="16dp"-->
-<!--                android:text="sign in with google"-->
-<!--                android:padding="15dp"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                android:backgroundTint="#EF0D3A"-->
-<!--                app:rippleColor="#304FFE"/>-->
-<!--            <com.google.android.material.button.MaterialButton-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                style="@style/Widget.MaterialComponents.Button.OutlinedButton"-->
-<!--                android:layout_marginLeft="16dp"-->
-<!--                android:layout_marginRight="16dp"-->
-<!--                android:backgroundTint="#5C6BC0"-->
-<!--                android:text="sign in with facebook"-->
-<!--                android:padding="15dp"-->
-<!--                android:textColor="@android:color/white"-->
-<!--                app:rippleColor="#304FFE"/>-->
-<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -256,7 +178,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/baloo"
                 android:text="ALREADY HAVE AN ACCOUNT ?"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -264,6 +186,7 @@
                 android:textColor="@color/darkorange"
                 android:text="LOGIN HERE"
                 android:layout_marginLeft="5dp"
+                android:id="@+id/txt_login"
                 android:fontFamily="@font/baloobold"/>
         </LinearLayout>
     </LinearLayout>

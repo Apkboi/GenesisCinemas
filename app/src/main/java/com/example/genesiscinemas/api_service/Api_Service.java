@@ -8,6 +8,7 @@ import com.example.genesiscinemas.models.MovieResponse;
 import com.example.genesiscinemas.models.NowPlayingMovieResponse;
 import com.example.genesiscinemas.models.SearchResponse;
 import com.example.genesiscinemas.models.UpcomingMovieResponse;
+import com.example.genesiscinemas.models.VideoResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -37,4 +38,7 @@ public interface Api_Service {
 
    @GET("/3/search/movie")
     public Call<SearchResponse> getSearchResponse (@Query("api_key") String apiKey,@Query("query") String query);
+
+   @GET("/3/movie/{movie_id}/videos")
+    public Call<VideoResponse> getVideos (@Path("movie_id") int movieId,@Query("api_key") String apiKey);
 }

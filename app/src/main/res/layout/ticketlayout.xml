@@ -110,12 +110,13 @@
            android:layout_margin="10dp"
             android:background="#B0655353"/>
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
             android:src="@drawable/code"
-            android:scaleType="centerCrop"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_gravity="center"
+            android:id="@+id/img_qr"
             android:layout_marginBottom="8dp"/>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

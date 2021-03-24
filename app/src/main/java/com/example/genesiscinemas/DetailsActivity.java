@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,10 +34,19 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.Nullable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,9 +56,24 @@ import static java.lang.String.valueOf;
 
 public class DetailsActivity extends AppCompatActivity {
 
+
+    //    ------------Database Collections---------
+    private static  final String CARDS_COLLECTION = "Payment Cards";
+
+    //    ----------------Variables----------
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    String Useremail = firebaseAuth.getCurrentUser().getEmail();
+//    -----fields
+private static  final String USER_EMAIL = "User Email";
+
     private static final String TAG = "DetailsActivity";
     RecyclerView actorsList;
+    RecyclerView recyclerView;
+    LinearLayout linearLayout;
     @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
@@ -235,6 +260,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
 
+
                 minus_adult.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -299,49 +325,66 @@ public class DetailsActivity extends AppCompatActivity {
                 book_now.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent1 = new Intent(DetailsActivity.this,Checkout.class);
+                        BottomSheetDialog dialog1 = new BottomSheetDialog(DetailsActivity.this);
+                        dialog1.setContentView(R.layout.card_sheet_layout);
+                         recyclerView = dialog1.findViewById(R.id.sheet_recycler);
+                         linearLayout = dialog1.findViewById(R.id.linearLayout);
+                        MaterialButton btn_add = dialog1.findViewById(R.id.btn_add);
 
+
+
+                                Intent intent1 = new Intent(DetailsActivity.this,Checkout.class);
                         intent1.putExtra("id", id);
                         intent1.putExtra("Name", txt_director.getText());
                         intent1.putExtra("duration",txt_duration.getText());
                         intent1.putExtra("total",txt_total.getText());
+                        db.collection(CARDS_COLLECTION).whereEqualTo(USER_EMAIL,Useremail)
+                                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                                        ArrayList<Map>  cards = new ArrayList<>();
+                                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots){
+                                            cards.add(documentSnapshot.getData());
+
+                                        }
+                                        SelectCardAdapter atmAdapter = new SelectCardAdapter(cards,id,txt_director.getText().toString(),txt_duration.getText().toString(),txt_total.getText().toString());
+                                        recyclerView.setAdapter(atmAdapter);
+                                        btn_add.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                startActivity(new Intent(DetailsActivity.this,AddCardActivity.class));
+
+                                            }
+                                        });
+                                        if (atmAdapter.getItemCount()<1){
+                                            recyclerView.setVisibility(View.INVISIBLE);
+                                            linearLayout.setVisibility(View.VISIBLE);
+                                        }
+
+                                    }
+                                });
 
                         if (txt_total.getText().toString().equals("$0")){
                             Toast.makeText(DetailsActivity.this, "Select Number Of Seats", Toast.LENGTH_SHORT).show();
-                        }else{startActivity(intent1);}
+                        }else{
+                            dialog.hide();
+                            dialog1.show();}
 
                     }
                 });
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             }
         });
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DetailsActivity.this,VideoActivity.class);
+                intent.putExtra("id",id);
+                startActivity(intent);
+            }
+        });
 
-//        Api_Service service1 = RetrofitClient.getRetrofitInstance().create(Api_Service.class);
-//                Call<MovieImageResponse> imageResponseClass = service1.getMovieImage(id,"71abb56b703300c3b3b627872f42db03");
-//                imageResponseClass.enqueue(new Callback<MovieImageResponse>() {
-//                    @Override
-//                    public void onResponse(Call<MovieImageResponse> call, Response<MovieImageResponse> response) {
-//
-//
-//                        if (response.isSuccessful()) {
-//                            List<Object> images = response.body().getPosters();
-//
-//                            Glide.with(DetailsActivity.this).load("https://image.tmdb.org/t/p/w500"+images.get(2).toString())
-//                                    .into(appbar_image);
-//
-//
-//                           Log.i(TAG, "onResponse: susses"+response.body().getPosters().size());
-//                       }else {
-//                            Log.i(TAG, "onResponse: Error");
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<MovieImageResponse> call, Throwable t) {
-//
-//                        Log.i(TAG, "onResponse: Error");
-//                    }
-//                });
+
 
         Api_Service service = RetrofitClient.getRetrofitInstance().create(Api_Service.class);
         Call<MovieDetails> response= service.getMovieDetails(id,"71abb56b703300c3b3b627872f42db03");
@@ -353,6 +396,7 @@ public class DetailsActivity extends AppCompatActivity {
                     floatingActionButton.setVisibility(View.VISIBLE);
                     layout.setVisibility(View.VISIBLE);
                     MovieDetails details =response.body();
+
                     ratingBar.setRating(rating);
                     txt_rating.setText(String.valueOf(rating));
                     Glide.with(getBaseContext()).load(("https://image.tmdb.org/t/p/w500"+details.getPosterPath()))

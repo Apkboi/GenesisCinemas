@@ -184,6 +184,9 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.home:
                         drawerLayout.closeDrawer(Gravity.LEFT);
                         break;
+                    case R.id.myCards:
+                        startActivity(new Intent(HomeActivity.this,PaymentCardsActivity.class));
+                        break;
                 }
                 return true;
             }

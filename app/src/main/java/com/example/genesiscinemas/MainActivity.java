@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 startActivity(new Intent(MainActivity.this,OnboardingScreenActivity.class));
+                finish();
 
             }
 

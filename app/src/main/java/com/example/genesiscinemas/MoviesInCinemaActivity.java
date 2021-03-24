@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.genesiscinemas.api_service.Api_Service;
 import com.example.genesiscinemas.api_service.RetrofitClient;
 import com.example.genesiscinemas.models.NowPlayingMovieResponse;

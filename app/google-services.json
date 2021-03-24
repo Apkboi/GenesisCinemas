@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "530519971952",
+    "project_id": "genesiscinemas",
+    "storage_bucket": "genesiscinemas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530519971952:android:fc7064f704afd73dd9bcb5",
+        "android_client_info": {
+          "package_name": "com.example.genesiscinemas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "530519971952-369qs9ot15r47l25mjjorc7n2iehgjfv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQpW2hYwuIUeoE-HWZciYr_fjbYCiDRW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "530519971952-369qs9ot15r47l25mjjorc7n2iehgjfv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

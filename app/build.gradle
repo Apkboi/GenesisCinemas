@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -6,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.genesiscinemas"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -15,10 +16,10 @@ android {
     }
 
 
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 
     buildTypes {
@@ -41,11 +42,15 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     //noinspection GradleCompatible
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    implementation 'com.android.support:appcompat-v7:23.1.1'
     //noinspection GradleCompatible
-    compile 'com.android.support:design:23.1.1'
+    implementation 'com.android.support:design:23.1.1'
     //noinspection GradleCompatible
-    compile 'com.android.support:cardview-v7:23.1.1'
+    implementation 'com.android.support:cardview-v7:23.1.1'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-auth:20.0.3'
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
+    implementation files('libs\\YouTubeAndroidPlayerApi.jar')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -56,4 +61,10 @@ dependencies {
 //    api dependencies
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //    Paystack dependency
+    implementation 'co.paystack.android:paystack:3.1.2'
+    //    Qr code generator dependency
+    implementation('com.journeyapps:zxing-android-embedded:4.2.0') { transitive = false }
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.zxing:core:3.3.0'
 }

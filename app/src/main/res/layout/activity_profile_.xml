@@ -23,6 +23,7 @@
             android:scrollbarFadeDuration="2222"
             android:backgroundTint="@color/materialblack"
             app:contentScrim="#DD8028"
+            android:id="@+id/toolbar"
             style="@style/CustomToolbarTheme"
 
             >
@@ -52,7 +53,10 @@
         app:layout_anchor="@id/appbar_layout"
         app:layout_anchorGravity="bottom|right|end"
         android:src="@drawable/addphoto"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:id="@+id/actionbar"/>
+
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -161,6 +165,7 @@
                                 android:layout_marginLeft="8dp"
                                 android:textColor="@color/Lightblack"
                                 android:fontFamily="@font/baloobold"
+                                android:id="@+id/txt_bookedTickets"
                                 android:layout_marginBottom="5dp"/>
                         </LinearLayout>
 
@@ -377,5 +382,19 @@
 
 
     </androidx.core.widget.NestedScrollView>
-    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/progressDialog"
+
+        android:background="@android:color/white">
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorName="LineScaleIndicator"
+            android:layout_gravity="center"
+            app:indicatorColor="@color/darkorange"
+            />
+    </FrameLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

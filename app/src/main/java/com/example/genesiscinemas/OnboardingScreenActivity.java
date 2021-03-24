@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -16,9 +17,11 @@ import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 
+
 public class OnboardingScreenActivity extends AppCompatActivity {
 
-
+SharedPreferences sharedPreferences;
+Boolean firstTime;
     LinearLayout dots;
 //    addDots();
     TextView txtskip;
@@ -35,6 +38,12 @@ public class OnboardingScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding_screen);
+
+        sharedPreferences = getSharedPreferences("MyPreference",MODE_PRIVATE);
+        if (!sharedPreferences.getBoolean("firstTime",true)){
+            startActivity(new Intent(OnboardingScreenActivity.this,LoginActivity.class));
+            finish();
+        }
 //        addDots();
 
 
@@ -61,6 +70,10 @@ public class OnboardingScreenActivity extends AppCompatActivity {
         txtskip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                firstTime = false;
+                editor.putBoolean("firstTime",firstTime);
+                editor.apply();
                 startActivity(new Intent(OnboardingScreenActivity.this,SigninActivity.class));
 
             }
@@ -68,7 +81,12 @@ public class OnboardingScreenActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+               firstTime = false;
+                editor.putBoolean("firstTime",firstTime);
+                editor.apply();
                 startActivity(new Intent(OnboardingScreenActivity.this,LoginActivity.class));
+           finish();
             }
         });
 
@@ -76,7 +94,8 @@ public class OnboardingScreenActivity extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(OnboardingScreenActivity.this,ActorProfile_Activity.class));
+                startActivity(new Intent(OnboardingScreenActivity.this,AddCardActivity.class));
+                finish();
             }
         });
 
